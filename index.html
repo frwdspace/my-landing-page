@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRWD SPACE. | For the Future</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    <style>
+        /* Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+
+        .slogan {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+            margin-bottom: 3rem;
+            line-height: 1.2;
+        }
+
+        /* Responsive Type */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 8rem;
+            }
+            .slogan {
+                font-size: 4rem;
+            }
+        }
+
+        /* Abstract Background */
+        .bg-gradient {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Social Icons */
+        .social-container {
+            position: absolute;
+            bottom: 3rem;
+            display: flex;
+            gap: 2rem;
+            z-index: 10;
+        }
+
+        .social-icon {
+            color: rgba(255, 255, 255, 0.5);
+            transition: color 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-icon:hover {
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .social-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background -->
+    <div class="bg-gradient"></div>
+
+    <!-- Main Content -->
+    <div>
+        <h1 class="fade-up">FRWD SPACE.</h1>
+        <p class="slogan fade-up delay-200">For the Future</p>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="social-container fade-up delay-300">
+        <!-- Instagram -->
+        <a href="#" class="social-icon" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+        </a>
+
+        <!-- Twitter -->
+        <a href="#" class="social-icon" aria-label="Twitter">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-12.7 12.5S1.2 13 5.3 11c-2.4-.3-3.6-1.6-4-4.5 1.4 1 2.3 1 3.4 1-2.4-1.3-3.1-4.1-1.3-6.6 2.7 3 5.9 4.9 9.8 5.2-.7-3.7 3.3-6.4 6.2-4.1 1.4-.3 2.8-.8 4.1-1.5-.5 1.5-1.5 2.5-2.5 3.1 1.2-.2 2.4-.5 3.5-.9-.9 1.1-2.1 2.2-3.4 3z"></path>
+            </svg>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="#" class="social-icon" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+        </a>
+    </div>
+
+</body>
+</html>
