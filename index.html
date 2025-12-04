@@ -6,6 +6,9 @@
     <title>FRWD SPACE. | For the Future</title>
     <meta name="description" content="A futuristic landing page concept.">
     
+    <!-- Favicon: Black rounded square with White 'FS' text -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23000000%22/><text x=%2250%22 y=%2254%22 font-family=%22sans-serif%22 font-weight=%22900%22 font-size=%2250%22 fill=%22%23ffffff%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 letter-spacing=%22-2%22>FS</text></svg>">
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,16 +42,12 @@
         body {
             background-color: #000000;
             margin: 0;
-            /* Ensure text stroke works with the filter */
         }
         
         /* Custom Text Stroke Utility using SVG Filter */
         .text-stroke {
-            /* Color must be opaque for the filter's SourceAlpha to capture the shape */
-            color: #000000;
-            /* Apply the SVG filter defined in the body */
+            color: #000000; /* Match background to hide inner fill */
             filter: url(#connected-stroke);
-            /* Remove standard stroke to avoid double-stroking */
             -webkit-text-stroke: 0; 
         }
     </style>
@@ -69,18 +68,9 @@
     <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" aria-hidden="true">
         <defs>
             <filter id="connected-stroke">
-                <!-- 1. Grab the alpha channel of the text (the combined shape of overlapping letters) -->
-                <!-- 2. Dilate (expand) it by 1px to create the stroke width -->
                 <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="dilated" />
-                
-                <!-- 3. Create a flood of the desired stroke color -->
                 <feFlood flood-color="rgba(255, 255, 255, 0.3)" result="flood" />
-                
-                <!-- 4. Mask the flood with the dilated shape to get a solid block of color in the shape of the expanded text -->
                 <feComposite in="flood" in2="dilated" operator="in" result="colored_dilated" />
-                
-                <!-- 5. Cut out the original text shape (SourceAlpha) from the expanded shape -->
-                <!--    This leaves only the outer rim (the outline), merging overlapping areas -->
                 <feComposite in="colored_dilated" in2="SourceAlpha" operator="out" result="outline" />
             </filter>
         </defs>
